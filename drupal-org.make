@@ -3,6 +3,7 @@ api = 2
 
 ; Modules
 projects[appserver][subdir] = contrib
+projects[app_manifest][subdir] = contrib
 projects[fserver][subdir] = contrib
 projects[fserver][version] = 1.x-dev
 projects[ctools][subdir] = contrib
