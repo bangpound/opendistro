@@ -1,0 +1,37 @@
+<?php
+
+/**
+ * Implement hook_install().
+ *
+ * Perform actions to set up the site for this profile.
+ */
+function opendistro_install() {
+  variable_set('theme_default', 'seven');
+  variable_set('user_register', USER_REGISTER_ADMINISTRATORS_ONLY);
+  variable_set('site_frontpage', 'fserver');
+}
+
+/**
+ * Implements hook_requirements().
+ *
+ * Drupal doesn't check profiles for hook_requirements during installation, so this really
+ * only matters for the site status report.
+ */
+function opendistro_requirements($phase) {
+  $requirements = array();
+
+  if ($phase == 'install' || $phase == 'runtime') {
+    exec('tar --version', $output);
+    $output = implode("\r", $output);
+    if (strpos($output, 'GNU tar') === FALSE) {
+      $requirements['opendistro_tar'] = array(
+        'value' => t('GNU Tar not found'),
+        'severity' => REQUIREMENT_WARNING,
+        'description' => t('Feature Server\'s drush commands require <a href="@gnutar">GNU Tar</a> to create packages. <pre>@output</pre>', array('@gnutar' => 'http://www.gnu.org/software/tar/', '@output' => $output)),
+      );
+      $requirements['opendistro_tar']['title'] = t('Tar');
+    }
+  }
+
+  return $requirements;
+}

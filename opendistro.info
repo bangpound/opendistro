@@ -1,0 +1,6 @@
+name = OpenDistro
+description = Server for Apps and Features
+core = 7.x
+dependencies[] = appserver
+dependencies[] = fserver
+dependencies[] = toolbar
