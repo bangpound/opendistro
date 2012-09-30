@@ -6,8 +6,12 @@
  * Perform actions to set up the site for this profile.
  */
 function opendistro_install() {
-  theme_enable('seven');
+
+  // Seven is the default theme because this distribution is all backend.
+  theme_enable(array('seven'));
   variable_set('theme_default', 'seven');
+  theme_disable(array('bartik'));
+
   variable_set('user_register', USER_REGISTER_ADMINISTRATORS_ONLY);
   variable_set('site_frontpage', 'fserver');
 }
