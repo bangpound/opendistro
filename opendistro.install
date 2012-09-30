@@ -6,6 +6,7 @@
  * Perform actions to set up the site for this profile.
  */
 function opendistro_install() {
+  theme_enable('seven');
   variable_set('theme_default', 'seven');
   variable_set('user_register', USER_REGISTER_ADMINISTRATORS_ONLY);
   variable_set('site_frontpage', 'fserver');
