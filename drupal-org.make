@@ -18,14 +18,14 @@ projects[votingapi][subdir] = contrib
 
 ; Patches
 
-// Alert the user to create a Server Type term. http://drupal.org/node/1504338
+; Alert the user to create a Server Type term. http://drupal.org/node/1504338
 projects[appserver][patch][] = http://drupal.org/files/appserver-1504338.patch
 
-// Add Menu Item for App Browser
+; Add Menu Item for App Browser
 projects[appserver][patch][] = http://drupal.org/files/appserver-1504242.patch
 
-// Make sure the node object exists before trying to access its properties
+; Make sure the node object exists before trying to access its properties
 projects[appserver][patch][] = http://drupal.org/files/appserver-1504234.patch
 
-// fix notice in appserver.export.inc
+; fix notice in appserver.export.inc
 projects[appserver][patch][] = http://drupal.org/files/appserver-1503046.patch
